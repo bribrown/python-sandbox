@@ -1,0 +1,93 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bac="http://www.moduslink.com/BackOffice">
+<s:Header/>
+<s:Body>
+<CreateOrder xmlns="http://www.moduslink.com/BackOffice">
+<messageHeader>
+<ExternalRef>HERE144063542</ExternalRef>
+</messageHeader>
+<messageClientConfig>
+<Client>Navteq</Client>
+<Campaign>Enterprise</Campaign>
+<Program>Developer Web</Program>
+<Event>General</Event>
+<Region>NA</Region>
+</messageClientConfig>
+<messageQuote>
+<SwTotalPrice>85.45</SwTotalPrice>
+<IceCurrencyCode>USD</IceCurrencyCode>
+<IceTotalTax>7.35</IceTotalTax>
+<IcePayTerm>Token Captured</IcePayTerm>
+<IceTotalAmount>87.21</IceTotalAmount>
+<IceOrderRef>HERE144063542</IceOrderRef>
+<PaymentInfo>
+<SwPaymentMethod>Credit Card</SwPaymentMethod>
+<SwCCType>VISA</SwCCType>
+<SwCCNumber>41111*******1111</SwCCNumber>
+<SwCCHolder>Tom Dixon</SwCCHolder>
+<SwCCExpDate>
+<Day>01</Day>
+<Month>01</Month>
+<Year>2099</Year>
+</SwCCExpDate>
+<SwCCAuthNumber>99999</SwCCAuthNumber>
+<SwAmount>92.8</SwAmount>
+<CC_Trans_ID>8a8394844eb0a2ef014eb51eaa726142</CC_Trans_ID>
+<IceAuthExpDate>
+<Day>01</Day>
+<Month>01</Month>
+<Year>2099</Year>
+</IceAuthExpDate>
+</PaymentInfo>
+<PersonShipTo>
+<Type>Ship To</Type>
+<SwFirstName>Gary</SwFirstName>
+<SwLastName>Voronel</SwLastName>
+<SwHomePhone>
+<Number>+1 - 8884442988</Number>
+<AreaCode>+1 </AreaCode>
+</SwHomePhone>
+<SwEmailAddress>gary@yext.com</SwEmailAddress>
+<IceLanguage>en</IceLanguage>
+</PersonShipTo>
+<PersonBillTo>
+<Type>Bill To</Type>
+<SwFirstName>Gary</SwFirstName>
+<SwLastName>Voronel</SwLastName>
+<SwHomePhone>
+<Number>+1 - 8884442988</Number>
+<AreaCode>+1 </AreaCode>
+</SwHomePhone>
+<SwEmailAddress>gary@yext.com</SwEmailAddress>
+<IceLanguage>en</IceLanguage>
+</PersonBillTo>
+<AddressShipTo>
+<Type>Ship To</Type>
+<SwAddress1>1 Madison Ave, 5th Fl</SwAddress1>
+<SwAddress2/>
+<SwCity>New York</SwCity>
+<SwState>NY</SwState>
+<SwZip>10010</SwZip>
+<SwCountry>US</SwCountry>
+</AddressShipTo>
+<AddressBillTo>
+<Type>Bill To</Type>
+<SwAddress1>1 Madison Ave, 5th Fl</SwAddress1>
+<SwAddress2/>
+<SwCity>New York</SwCity>
+<SwState>NY</SwState>
+<SwZip>10010</SwZip>
+<SwCountry>US</SwCountry>
+</AddressBillTo>
+<QuoteItems>
+<IceQuoteItem>
+<SwPartNumber>10121649</SwPartNumber>
+<SwQuantity>1</SwQuantity>
+<SwPrice>85.45</SwPrice>
+<SwDesc>Forward Geocoding (42824 units @ $.002)</SwDesc>
+<IceQuoteLineNo>90</IceQuoteLineNo>
+</IceQuoteItem>
+</QuoteItems>
+</messageQuote>
+</CreateOrder>
+</s:Body>
+</s:Envelope>
