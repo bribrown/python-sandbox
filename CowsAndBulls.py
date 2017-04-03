@@ -23,7 +23,6 @@ def main():
 
         print()
 
-
         for i in range(0, 4):
             a = user_guess[i]
             user_guess_list.append(a)
@@ -31,10 +30,10 @@ def main():
 
         for x in range(0,4):
             if user_guess_list[x] == str_target[x]:
-                bulls += 1
+                cows += 1
                 x += 1
             elif user_guess_list[x] in str_target:
-                cows += 1
+                bulls += 1
                 x += 1
             else: x += 1
 
