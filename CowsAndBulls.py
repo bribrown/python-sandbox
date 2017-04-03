@@ -42,29 +42,4 @@ def main():
         print('You have made ' + str(user_attempts) + ' guesses')
         print()
 
-
-
-
-    #
-    #     if ug == 'exit':
-    #         exit()
-    #
-    #     if ug > 9 or ug < 1:
-    #         print('Your guess is not in the range of 1 - 9')
-    #     elif ug == rn:
-    #         print('You guessed the number.')
-    #         print('It took ' + str(attempts) + ' guesses')
-    #     elif ug < rn:
-    #         print('Your guess is less than the number')
-    #     else:
-    #         print('Your guess is greater then the number')
-
-
-
-            # def append_test():
-    #     f = e.append(1)
-    #     print(f)
-    #
-    # append_test()
-
 if __name__ == "__main__": main()
