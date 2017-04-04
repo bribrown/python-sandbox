@@ -15,13 +15,20 @@ def main():
     print(target)
 
     while user_guess_list != str_target:
-        user_guess = str(int(input('Guess a four digit #: ')))
+        user_guess = input('Guess a four digit # or exit: ')
         user_guess_list = []
         user_attempts += 1
         cows = 0
         bulls = 0
 
         print()
+
+        if user_guess == 'exit':
+            exit()
+
+        if len(user_guess) != 4:
+            print('Please enter a 4 digit #')
+            continue
 
         for i in range(0, 4):
             a = user_guess[i]
