@@ -17,3 +17,7 @@ def main():
     print(random_word)
 
 if __name__ == "__main__": main()
+
+# with open('sowpods.txt') as f:
+# 	words = list(f)
+# print(random.choice(words).strip())
