@@ -25,8 +25,6 @@ def get_word():
     random_word = wl[random_word_index]
     return (random_word)
 
-# user input function
-
 def main():
     word = get_word()
     wordlen = len(word)
@@ -41,9 +39,19 @@ def main():
     print()
 
     while guess_internal != word:
-        guess = input('Guess a letter: ')
+        guess = input('Guess a letter, the word, or exit: ')
         print()
         guess = guess.upper()
+        if len(guess) != 1:
+            if guess == 'EXIT':
+                exit()
+            elif guess == word:
+                print('You guessed the word!')
+                exit()
+            else:
+                print('Your guess is incorrect, please try again')
+                print()
+                continue
         if guess in guess_list:
             print('Letter has already been guessed, please try again')
             print()
