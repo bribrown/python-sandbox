@@ -27,9 +27,9 @@ def get_word():
 
 def main():
     word = get_word()
-    wordlen = len(word)
-    guess_internal = '%' * (wordlen-1)
-    guess_external = '_ ' * (wordlen-1)
+    wordlen = len(word.strip())
+    guess_internal = '%' * (wordlen)
+    guess_external = '_ ' * (wordlen)
     guess_list = []
     number_of_incorrect_guesses = 0
     play_again=''
