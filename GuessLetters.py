@@ -90,6 +90,8 @@ def main():
 
     print('You are out of incorrect guesses')
     print()
+    print('The word was: ' + word)
+    print()
     while play_again != 'Y':
         play_again = input('Would you like to play again (y/n)?')
         play_again = play_again.upper()
