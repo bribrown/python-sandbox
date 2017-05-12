@@ -26,10 +26,10 @@ def get_word():
     return (random_word)
 
 def main():
-    word = get_word()
-    wordlen = len(word.strip())
-    guess_internal = '%' * (wordlen)
-    guess_external = '_ ' * (wordlen)
+    word = get_word().strip()
+    wordlen = len(word)
+    guess_internal = '%' * wordlen
+    guess_external = '_ ' * wordlen
     guess_list = []
     number_of_incorrect_guesses = 0
     play_again=''
@@ -37,6 +37,8 @@ def main():
     print()
     print('Welcome to Hangman')
     print('You are allowed 6 incorrect guesses.')
+    print(word)
+    print(len(word))
     print()
     print('Word: ' + guess_external)
     print()
@@ -45,6 +47,8 @@ def main():
         guess = input('Guess a letter, the word, or exit: ')
         print()
         guess = guess.upper()
+        print(guess)
+        print(len(guess))
         if len(guess) != 1:
             if guess == 'EXIT':
                 exit()
