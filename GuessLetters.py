@@ -25,6 +25,21 @@ def get_word():
     random_word = wl[random_word_index]
     return (random_word)
 
+def play_again_query():
+    play_again = ''
+    while play_again != 'Y':
+        play_again = input('Would you like to play again (y/n)?')
+        play_again = play_again.upper()
+        if play_again == 'N':
+            exit()
+        elif play_again == 'Y':
+            main()
+        else:
+            print()
+            print('Please enter \'y\' or \'n\'')
+            print()
+            continue
+
 def main():
     word = get_word().strip()
     wordlen = len(word)
@@ -32,7 +47,7 @@ def main():
     guess_external = '_ ' * wordlen
     guess_list = []
     number_of_incorrect_guesses = 0
-    play_again=''
+    #play_again=''
 
     print()
     print('Welcome to Hangman')
@@ -51,18 +66,19 @@ def main():
             elif guess == word:
                 print('You guessed the word!')
                 print()
-                while play_again != 'Y':
-                    play_again = input('Would you like to play again (y/n)?')
-                    play_again = play_again.upper()
-                    if play_again == 'N':
-                        exit()
-                    elif play_again == 'Y':
-                        main()
-                    else:
-                        print()
-                        print('Please enter \'y\' or \'n\'')
-                        print()
-                        continue
+                play_again_query()
+                # while play_again != 'Y':
+                #     play_again = input('Would you like to play again (y/n)?')
+                #     play_again = play_again.upper()
+                #     if play_again == 'N':
+                #         exit()
+                #     elif play_again == 'Y':
+                #         main()
+                #     else:
+                #         print()
+                #         print('Please enter \'y\' or \'n\'')
+                #         print()
+                #         continue
             else:
                 print('Your guess is incorrect, please try again')
                 print()
@@ -103,35 +119,38 @@ def main():
     if guess_internal == word:
         print('You guessed the word!')
         print()
-        while play_again != 'Y':
-            play_again = input('Would you like to play again (y/n)?')
-            play_again = play_again.upper()
-            if play_again == 'N':
-                exit()
-            elif play_again == 'Y':
-                main()
-            else:
-                print()
-                print('Please enter \'y\' or \'n\'')
-                print()
-                continue
+        play_again_query()
+        # while play_again != 'Y':
+        #     play_again = input('Would you like to play again (y/n)?')
+        #     play_again = play_again.upper()
+        #     if play_again == 'N':
+        #         exit()
+        #     elif play_again == 'Y':
+        #         main()
+        #     else:
+        #         print()
+        #         print('Please enter \'y\' or \'n\'')
+        #         print()
+        #         continue
 
     print('You are out of incorrect guesses')
     print()
     print('The word was: ' + word)
     print()
-    while play_again != 'Y':
-        play_again = input('Would you like to play again (y/n)?')
-        play_again = play_again.upper()
-        if play_again == 'N':
-            exit()
-        elif play_again == 'Y':
-            main()
-        else:
-            print()
-            print('Please enter \'y\' or \'n\'')
-            print()
-            continue
+    # while play_again != 'Y':
+    #     play_again = input('Would you like to play again (y/n)?')
+    #     play_again = play_again.upper()
+    #     if play_again == 'N':
+    #         exit()
+    #     elif play_again == 'Y':
+    #         main()
+    #     else:
+    #         print()
+    #         print('Please enter \'y\' or \'n\'')
+    #         print()
+    #         continue
+    play_again_query()
+
 
 if __name__ == "__main__": main()
 
