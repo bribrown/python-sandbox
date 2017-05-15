@@ -37,8 +37,6 @@ def main():
     print()
     print('Welcome to Hangman')
     print('You are allowed 6 incorrect guesses.')
-    print(word)
-    print(len(word))
     print()
     print('Word: ' + guess_external)
     print()
@@ -47,14 +45,23 @@ def main():
         guess = input('Guess a letter, the word, or exit: ')
         print()
         guess = guess.upper()
-        print(guess)
-        print(len(guess))
         if len(guess) != 1:
             if guess == 'EXIT':
                 exit()
             elif guess == word:
                 print('You guessed the word!')
-                exit()
+                print()
+                while play_again != 'Y':
+                    play_again = input('Would you like to play again (y/n)?')
+                    play_again = play_again.upper()
+                    if play_again == 'N':
+                        exit()
+                    elif play_again == 'Y':
+                        main()
+                    else:
+                        print('Please enter \'y\' or \'n\'. Would you like to play again (y/n)?')
+                        print()
+                        continue
             else:
                 print('Your guess is incorrect, please try again')
                 print()
@@ -91,6 +98,21 @@ def main():
             print('Your guess list: ' + str(guess_list))
             print('Number of incorrect guesses: ' + str(number_of_incorrect_guesses))
             print()
+
+    if guess_internal == word:
+        print('You guessed the word!')
+        print()
+        while play_again != 'Y':
+            play_again = input('Would you like to play again (y/n)?')
+            play_again = play_again.upper()
+            if play_again == 'N':
+                exit()
+            elif play_again == 'Y':
+                main()
+            else:
+                print('Please enter \'y\' or \'n\'. Would you like to play again (y/n)?')
+                print()
+                continue
 
     print('You are out of incorrect guesses')
     print()
