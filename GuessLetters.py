@@ -59,7 +59,8 @@ def main():
                     elif play_again == 'Y':
                         main()
                     else:
-                        print('Please enter \'y\' or \'n\'. Would you like to play again (y/n)?')
+                        print()
+                        print('Please enter \'y\' or \'n\'')
                         print()
                         continue
             else:
@@ -110,7 +111,8 @@ def main():
             elif play_again == 'Y':
                 main()
             else:
-                print('Please enter \'y\' or \'n\'. Would you like to play again (y/n)?')
+                print()
+                print('Please enter \'y\' or \'n\'')
                 print()
                 continue
 
@@ -126,7 +128,8 @@ def main():
         elif play_again == 'Y':
             main()
         else:
-            print('Please enter \'y\' or \'n\'. Would you like to play again (y/n)?')
+            print()
+            print('Please enter \'y\' or \'n\'')
             print()
             continue
 
