@@ -1,17 +1,7 @@
-# Let’s continue building Hangman. In the game of Hangman, a clue word is given by the program that the player has to guess, letter by letter.
-# The player guesses one letter at a time until the entire word has been guessed. (In the actual game, the player can only guess 6 letters incorrectly
-# before losing).
-#
-# Let’s say the word the player has to guess is “EVAPORATE”. For this exercise, write the logic that asks a player to guess a letter and displays
-# letters in the clue word that were guessed correctly. For now, let the player guess an infinite number of times until they get the entire word.
-# As a bonus, keep track of the letters the player guessed and display a different message if the player tries to guess that letter again.
-# Remember to stop the game when all the letters have been guessed correctly! Don’t worry about choosing a word randomly or keeping track
-# of the number of guesses the player has remaining - we will deal with those in a future exercise.
-
 import re
 import random
 
-# pick random word function
+# function to pick random word
 
 def get_word():
     wl = []
@@ -24,6 +14,8 @@ def get_word():
     random_word_index = random.randint(0, wlen)
     random_word = wl[random_word_index]
     return (random_word)
+
+# function to handle if player wants to play again after game ends
 
 def play_again_query():
     play_again = ''
@@ -47,7 +39,6 @@ def main():
     guess_external = '_ ' * wordlen
     guess_list = []
     number_of_incorrect_guesses = 0
-    #play_again=''
 
     print()
     print('Welcome to Hangman')
@@ -67,18 +58,6 @@ def main():
                 print('You guessed the word!')
                 print()
                 play_again_query()
-                # while play_again != 'Y':
-                #     play_again = input('Would you like to play again (y/n)?')
-                #     play_again = play_again.upper()
-                #     if play_again == 'N':
-                #         exit()
-                #     elif play_again == 'Y':
-                #         main()
-                #     else:
-                #         print()
-                #         print('Please enter \'y\' or \'n\'')
-                #         print()
-                #         continue
             else:
                 print('Your guess is incorrect, please try again')
                 print()
@@ -120,37 +99,12 @@ def main():
         print('You guessed the word!')
         print()
         play_again_query()
-        # while play_again != 'Y':
-        #     play_again = input('Would you like to play again (y/n)?')
-        #     play_again = play_again.upper()
-        #     if play_again == 'N':
-        #         exit()
-        #     elif play_again == 'Y':
-        #         main()
-        #     else:
-        #         print()
-        #         print('Please enter \'y\' or \'n\'')
-        #         print()
-        #         continue
 
     print('You are out of incorrect guesses')
     print()
     print('The word was: ' + word)
     print()
-    # while play_again != 'Y':
-    #     play_again = input('Would you like to play again (y/n)?')
-    #     play_again = play_again.upper()
-    #     if play_again == 'N':
-    #         exit()
-    #     elif play_again == 'Y':
-    #         main()
-    #     else:
-    #         print()
-    #         print('Please enter \'y\' or \'n\'')
-    #         print()
-    #         continue
     play_again_query()
-
 
 if __name__ == "__main__": main()
 
