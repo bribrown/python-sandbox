@@ -83,7 +83,7 @@ def main():
         al = []
         for x in range(3):
             x = random.randint(0, 49)
-            if x not in rl:
+            if x not in rl and x != b[i][1]:
                 rl.append(x)
             else:
                 continue
@@ -98,7 +98,8 @@ def main():
         print()
         i += 1
 
-    print()
+    # WHY DO SOME ANSWER LISTS ONLY HAVE 3 CHOICES (2 wrong, 1 right) - perhaps this happens during build of "rl"
+    # list. Duplicate discarded, loop moves on instead of populating a value
 
     # rl = []
     # for x in range(3):
