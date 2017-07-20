@@ -26,7 +26,6 @@
 # Use random.shuffle() to randomize the order of the questions and multiple-choice options.
 
 import random
-import string
 
 def main():
     capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
@@ -47,51 +46,24 @@ def main():
                 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia':
                 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
-    # for k,v in capitals.items():
-    #     print(v + ' ' + k)
-
-    print()
-
-    a = list(capitals.values())
-    print(a)
-
     b = list(capitals.items())
-    print(b)
 
-    c = list(capitals.keys())
-    print(c)
-
-    # print()
-    #
-    # print(b[0][0])
-    # print(b[0][1])
-    # print(b[1][0])
-    # print(b[1][1])
-
-    # random.shuffle(b)
-    #
-    # print()
-    # print(b)
     print()
 
     random.shuffle(b)
     for i in range(0,50):
-        #random.shuffle(b)
         print('Question # ' + str(i+1) + ':' + ' What is the capital of: ' + b[i][0] + '?')
         print()
         rl = []
         t=0
-        #for x in range(3):
         while t < 3:
             x = random.randint(0, 49)
             if x not in rl and x != i:
                 rl.append(x)
                 t += 1
             else:
-                #print('Got a match')
                 continue
         rl.append(i)
-        #print(rl)
         random.shuffle(rl)
         for j in range(len(rl)):
             vvv = rl[j]
@@ -101,24 +73,5 @@ def main():
         print('Answer: ' + b[i][1])
         print()
         i += 1
-
-    # WHY DO SOME ANSWER LISTS ONLY HAVE 3 CHOICES (2 wrong, 1 right) - perhaps this happens during build of "rl"
-    # list. Duplicate discarded, loop moves on instead of populating a value
-
-    # rl = []
-    # for x in range(3):
-    #     x = random.randint(0,49)
-    #     if x not in rl:
-    #         rl.append(x)
-    #     else:
-    #         continue
-    # print(rl)
-
-    # for q in range(100):
-    #     #q = random.randint(3677777,5677777)
-    #     #q = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
-    #     q = ''.join([random.choice(string.ascii_letters) for n in range(10)])
-    #     print(q)
-
 
 if __name__ == "__main__": main()
