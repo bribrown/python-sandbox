@@ -80,15 +80,19 @@ def main():
         print('Question # ' + str(i+1) + ':' + ' What is the capital of: ' + b[i][0] + '?')
         print()
         rl = []
-        al = []
-        for x in range(3):
+        t=0
+        #for x in range(3):
+        while t < 3:
             x = random.randint(0, 49)
-            if x not in rl and x != b[i][1]:
+            if x not in rl and x != i:
                 rl.append(x)
+                t += 1
             else:
+                #print('Got a match')
                 continue
         rl.append(i)
         #print(rl)
+        random.shuffle(rl)
         for j in range(len(rl)):
             vvv = rl[j]
             print(b[vvv][1])
