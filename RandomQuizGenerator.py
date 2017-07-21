@@ -27,6 +27,32 @@
 
 import random
 
+def makeQuiz(stateList):
+    b = list(stateList.items())
+    random.shuffle(b)
+    for i in range(0,50):
+        print('Question # ' + str(i+1) + ':' + ' What is the capital of ' + b[i][0] + '?')
+        print()
+        answerList = []
+        t = 0
+        while t < 3:
+            x = random.randint(0, 49)
+            if x not in answerList and x != i:
+                answerList.append(x)
+                t += 1
+            else:
+                continue
+        answerList.append(i)
+        random.shuffle(answerList)
+        for j in range(len(answerList)):
+            a = answerList[j]
+            print(b[a][1])
+            j += 1
+        print()
+        print('Answer: ' + b[i][1])
+        print()
+        i += 1
+
 def main():
     capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
                 'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver',
@@ -46,32 +72,12 @@ def main():
                 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia':
                 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
-    b = list(capitals.items())
-
     print()
 
-    random.shuffle(b)
-    for i in range(0,50):
-        print('Question # ' + str(i+1) + ':' + ' What is the capital of: ' + b[i][0] + '?')
-        print()
-        rl = []
-        t=0
-        while t < 3:
-            x = random.randint(0, 49)
-            if x not in rl and x != i:
-                rl.append(x)
-                t += 1
-            else:
-                continue
-        rl.append(i)
-        random.shuffle(rl)
-        for j in range(len(rl)):
-            vvv = rl[j]
-            print(b[vvv][1])
-            j += 1
-        print()
-        print('Answer: ' + b[i][1])
-        print()
-        i += 1
+    quizzes = 1
+
+    while quizzes < 3:
+        makeQuiz(capitals)
+        quizzes += 1
 
 if __name__ == "__main__": main()
