@@ -26,13 +26,21 @@
 # Use random.shuffle() to randomize the order of the questions and multiple-choice options.
 
 import random
+import os
 
-def makeQuiz(stateList):
+
+def makeQuiz(stateList,quizNum):
+    os.chdir('C:\\Users\\bbrownholtz\\Desktop\\State_Quizes\\Quizes')
+    quizFile = open('quiz#' + quizNum + '.txt', 'a')
+    os.chdir('C:\\Users\\bbrownholtz\\Desktop\\State_Quizes\\Answers')
+    answerFile = open('answers#' + quizNum + '.txt', 'a')
     b = list(stateList.items())
     random.shuffle(b)
     for i in range(0,50):
         print('Question # ' + str(i+1) + ':' + ' What is the capital of ' + b[i][0] + '?')
+        quizFile.write('Question # ' + str(i+1) + ':' + ' What is the capital of ' + b[i][0] + '?\n')
         print()
+        quizFile.write('\n')
         answerList = []
         t = 0
         while t < 3:
@@ -47,11 +55,19 @@ def makeQuiz(stateList):
         for j in range(len(answerList)):
             a = answerList[j]
             print(b[a][1])
+            quizFile.write(b[a][1]+'\n')
+            quizFile.write('\n')
             j += 1
         print()
         print('Answer: ' + b[i][1])
+        os.chdir('C:\\Users\\bbrownholtz\\Desktop\\State_Quizes\\Answers')
+        answerFile.write('Question ' + str(i+1) + ':' + b[i][1] + '\n')
+        answerFile.write('\n')
         print()
+        os.chdir('C:\\Users\\bbrownholtz\\Desktop\\State_Quizes\\Quizes')
         i += 1
+    quizFile.close()
+    answerFile.close()
 
 def main():
     capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
@@ -77,7 +93,8 @@ def main():
     quizzes = 1
 
     while quizzes < 3:
-        makeQuiz(capitals)
+        makeQuiz(capitals,str(quizzes))
         quizzes += 1
+
 
 if __name__ == "__main__": main()
