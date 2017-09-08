@@ -1,8 +1,6 @@
-# enter search term
-# pass search term to Google
-# open top 5 links in browser
+# Download all xkcd comics to a folder
+# indicates no more previous comics...https://xkcd.com/1/#
 
-import webbrowser
 import requests
 import bs4
 import re
@@ -19,7 +17,7 @@ def main():
     comicLink = comicLink[0].get('src')
 
     prevLink = soup.select('.comicNav a')
-    prevLink = prevLink[1].get('href')
+    prevLink = '//xkcd.com' + prevLink[1].get('href')
 
     print(comicLink)
     print(prevLink)
