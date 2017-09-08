@@ -20,9 +20,13 @@ def main():
 
     ml = getMadLibList[0]
 
+    print(ml)
+
     pattern = re.compile(r'\.| ')
 
     reListML = pattern.split(ml)
+
+    print(reListML)
 
     for i in reListML:
         if i == '':
@@ -30,6 +34,8 @@ def main():
             reListML[z] = '.'
         else:
             continue
+
+    print(reListML)
 
     for i in reListML:
         if i == ('ADJECTIVE'):
