@@ -3,28 +3,35 @@
 
 import requests
 import bs4
-import re
 import os
 
 def main():
 
-    comicRequest = requests.get('http://xkcd.com/')
-    comicRequest.raise_for_status()
+    # url = '//xkcd.com/'
+    url = '//xkcd.com/1665/'
 
-    soup = bs4.BeautifulSoup(comicRequest.text, 'html.parser')
+    while url != '//xkcd.com/1/#':
+        comicRequest = requests.get('http:' + url)
+        comicRequest.raise_for_status()
 
-    comicLink = soup.select('#comic img')
-    comicLink = comicLink[0].get('src')
+        soup = bs4.BeautifulSoup(comicRequest.text, 'html.parser')
 
-    prevLink = soup.select('.comicNav a')
-    prevLink = '//xkcd.com' + prevLink[1].get('href')
+        comicLink = soup.select('#comic img')
+        try:
+            comicLink = comicLink[0].get('src')
+        except IndexError:
+            comicLink = 'Cannot download comic'
+            pass
 
-    print(comicLink)
-    print(prevLink)
+        url = soup.select('.comicNav a')
+        url = '//xkcd.com' + url[1].get('href')
 
-    comicUrl = 'http:' + comicLink
-    res = requests.get(comicUrl)
-    res.raise_for_status()
+        print('Current Link: ' + comicLink)
+        print('Previous Link: ' + url)
+
+    # comicUrl = 'http:' + comicLink
+    # res = requests.get(comicUrl)
+    # res.raise_for_status()
 
     # os.chdir('C:\\Users\\bbrownholtz\\Desktop')
     # comicFile = open('1.png', 'wb')
