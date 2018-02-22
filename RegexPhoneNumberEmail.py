@@ -65,9 +65,9 @@ def main():
     plen = len(y)
     elen = len(z)
 
-    print('Phone numbers found in string: ' + str(plen))
+    print('Phone numbers found in string: {}'.format(plen))
     print()
-    print('Email addresses found in string: ' + str(elen))
+    print('Email addresses found in string: {}'.format(elen))
     print()
 
 
