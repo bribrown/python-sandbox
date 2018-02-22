@@ -7,6 +7,8 @@ def main():
 
     pn = '123-456-7890 as the phone number, 666-777-9999 ext. 324 as the phone number, asaasdasdqwedqwdqwdqwqwdqwdqwd 999444-3333x5555'
 
+    em = 'aso1123123 119### bribrown@yahoo.com 2131 dasd3wdwd3 brian.brownholtz@gmail.com adff2fwwef3r23 r2 23r 23r bbrownholtz@ariasystems.tv'
+
     foundPhoneNum = re.compile(r'''(
         (\d{3}|\(\d{3}\))?                # area code - ? means optional
         (\s|-|\.)?                        # separator
@@ -17,27 +19,60 @@ def main():
         )''', re.VERBOSE)
 
     foundEmail = re.compile(r'''(
-        [a-zA-Z0-9._%+-]+      # username [] defines a character class for regex
-        @                      # @ symbol
-        [a-zA-Z0-9.-]+         # domain name
+        ([a-zA-Z0-9._%+-]+)      # username [] defines a character class for regex
+        (@)                      # @ symbol
+        ([a-zA-Z0-9.-]+ )        # domain name
         (\.[a-zA-Z]{2,4})      # dot-something
          )''', re.VERBOSE)
 
     y = foundPhoneNum.findall(pn)
 
-    b = []
+    z = foundEmail.findall(em)
 
-    f=0
+
+    # commented code, first element of findall (element 0) has whole expression
+    # previous version of this code was taking elements > 0 and consolidating them
+    # back into what already was available in element 0
+    # b = []
+    #
+    f = 0
+    #
+    # while f < 3:
+    #     for i in range(1,7):    # 6 possible elements in phone number
+    #         a = y[f][i]
+    #         b.append(a)
+    #         i += 1
+    #     c = ''.join(b)
+    #     print(c)
+    #     b = []
+    #     f += 1
 
     while f < 3:
-        for i in range(1,7):
-            a = y[f][i]
-            b.append(a)
-            i += 1
-        c = ''.join(b)
-        print(c)
-        b = []
+        t = y[f][0]
+        print(t)
         f += 1
+
+    print()
+
+    #w = []
+
+    f = 0
+
+    # while f < 3:
+    #     for i in range(1,5):    # 4 possible elements in email
+    #         a = z[f][i]
+    #         w.append(a)
+    #         i += 1
+    #     d = ''.join(w)
+    #     print(d)
+    #     w = []
+    #     f += 1
+
+    while f < 3:
+        r = z[f][0]
+        print(r)
+        f += 1
+
 
 if __name__ == "__main__": main()
 
