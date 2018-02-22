@@ -9,6 +9,15 @@ def main():
 
     em = 'aso1123123 119### bribrown@yahoo.com 2131 dasd3wdwd3 brian.brownholtz@gmail.com adff2fwwef3r23 r2 23r 23r bbrownholtz@ariasystems.tv'
 
+    no_object = 'aso1123123 119### bribrown@yahoo.com 2131 dasd3wdwd3 brian.brownholtz@gmail.com adff2fwwef3r23 r2 23r 23r bbrownholtz@ariasystems.tv'
+
+    no_object_tuples = re.findall(r'([\w\.-]+)(@)([\w\.-]+)', no_object)
+    print(no_object_tuples)
+
+    print()
+
+
+
     foundPhoneNum = re.compile(r'''(
         (\d{3}|\(\d{3}\))?                # area code - ? means optional
         (\s|-|\.)?                        # separator
@@ -23,11 +32,17 @@ def main():
         (@)                      # @ symbol
         ([a-zA-Z0-9.-]+ )        # domain name
         (\.[a-zA-Z]{2,4})      # dot-something
-         )''', re.VERBOSE)
+         )''',re.VERBOSE)
 
     y = foundPhoneNum.findall(pn)
 
     z = foundEmail.findall(em)
+
+    print(y)
+    print()
+    print(z)
+    print()
+
 
 
     # commented code, first element of findall (element 0) has whole expression
@@ -47,7 +62,16 @@ def main():
     #     b = []
     #     f += 1
 
-    while f < 3:
+    plen = len(y)
+    elen = len(z)
+
+    print('Phone numbers found in string: ' + str(plen))
+    print()
+    print('Email addresses found in string: ' + str(elen))
+    print()
+
+
+    while f < plen:
         t = y[f][0]
         print(t)
         f += 1
@@ -68,7 +92,7 @@ def main():
     #     w = []
     #     f += 1
 
-    while f < 3:
+    while f < elen:
         r = z[f][0]
         print(r)
         f += 1
