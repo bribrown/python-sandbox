@@ -56,20 +56,23 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    sorted_list = []
-    last_elem = []
-    for i in tuples:
-        x = len(i)-1
-        last_elem.append(i[x])
-        last_elem.sort()
-    for i in last_elem:
-        for z in tuples:
-            x = len(z)-1
-            r = z[x]
-            if r == i:
-                sorted_list.append(z)
-    return sorted_list
+    # sorted_list = []
+    # last_elem = []
+    # for i in tuples:
+    #     last_elem.append(i[-1])
+    #     last_elem.sort()
+    # for i in last_elem:
+    #     for z in tuples:
+    #         x = len(z)-1
+    #         r = z[x]
+    #         if r == i:
+    #             sorted_list.append(z)
+    # return sorted_list
 
+    def pick_last_element(tup):
+        return tup[-1]
+
+    return sorted(tuples, key=pick_last_element)
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
