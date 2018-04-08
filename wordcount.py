@@ -8,33 +8,25 @@
 
 """Wordcount exercise
 Google's Python class
-
 The main() below is already defined and complete. It calls print_words()
 and print_top() functions which you write.
-
 1. For the --count flag, implement a print_words(filename) function that counts
 how often each word appears in the text and prints:
 word1 count1
 word2 count2
 ...
-
 Print the above list in order sorted by word (python will sort punctuation to
 come before letters -- that's fine). Store all the words as lowercase,
 so 'The' and 'the' count as the same word.
-
 2. For the --topcount flag, implement a print_top(filename) which is similar
 to print_words() but which prints just the top 20 most common words sorted
 so the most common word is first, then the next most common, and so on.
-
 Use str.split() (no arguments) to split on all whitespace.
-
 Workflow: don't build the whole program at once. Get it to an intermediate
 milestone and print your data structure and sys.exit(0).
 When that's working, try for the next milestone.
-
 Optional: define a helper function to avoid code duplication inside
 print_words() and print_top().
-
 """
 
 import sys
@@ -42,9 +34,8 @@ import sys
 def pick_last_element(tup):
     return tup[-1]
 
-def print_words(filename):
+def file_to_dict(filename):
     word_count = {}
-
     with open(filename, 'r') as open_file:
         for word in open_file.read().split():
             new_word = word.lower().strip('.,;?')
@@ -53,33 +44,25 @@ def print_words(filename):
                 word_count[new_word] = x
             else:
                 word_count[new_word] = 1
-
-    for z in sorted(word_count.keys()):
-        print(z, word_count[z])
+    return word_count
 
     open_file.close()
 
+def print_words(filename):
+    word_list = file_to_dict(filename)
+
+    for z in sorted(word_list.keys()):
+        print(z, word_list[z])
+
 def print_top(filename):
-    word_count = {}
-
-    with open(filename, 'r') as open_file:
-        for word in open_file.read().split():
-            new_word = word.lower().strip('.,;?')
-            if new_word in word_count:
-                x = word_count.get(new_word) + 1
-                word_count[new_word] = x
-            else:
-                word_count[new_word] = 1
-
-    ordered_list = word_count.items()
+    word_list = file_to_dict(filename)
+    ordered_list = word_list.items()
     sorted_list = sorted(ordered_list, key=pick_last_element, reverse=True)
 
     y = 0
     while y < 20:
         print(sorted_list[y][0], sorted_list[y][1])
         y += 1
-
-    open_file.close()
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
