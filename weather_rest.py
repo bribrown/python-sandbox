@@ -35,8 +35,13 @@ print(results['main'])
 print(results['main']['temp'])
 
 print()
-print('What data would you like to see?: ' + Fore.GREEN + str(key_list),end='')
-print(Style.RESET_ALL,end='')
-x=input()
+while True:
+    try:
+        print('What data would you like to see?: ' + Fore.GREEN + str(key_list),end='')
+        print(Style.RESET_ALL,end='')
+        x=input()
+        print(results[x])
+        break
+    except:
+        print('Enter a valid key.')
 print()
-print(results[x])
