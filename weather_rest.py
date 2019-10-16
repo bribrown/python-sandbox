@@ -2,8 +2,10 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
+from colorama import init, Fore, Back, Style
 
 load_dotenv()
+init()
 
 APPID = os.getenv('APPID')
 
@@ -31,3 +33,10 @@ for key in results.keys():
 print(key_list)
 print(results['main'])
 print(results['main']['temp'])
+
+print()
+print('What data would you like to see?: ' + Fore.GREEN + str(key_list),end='')
+print(Style.RESET_ALL,end='')
+x=input()
+print()
+print(results[x])
