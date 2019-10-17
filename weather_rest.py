@@ -2,46 +2,82 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore, Style
+import sys
 
-load_dotenv()
-init()
+def return_data(key_list,results):
+    while True:
+        try:
+            print('What data would you like to see?: ' + Fore.GREEN + str(key_list),end='')
+            print(Style.RESET_ALL,end='')
+            x=input()
+            print(results[x])
+        except:
+            print('Enter a valid key.')
+        more_weather(key_list, results)
 
-APPID = os.getenv('APPID')
+def more_weather(key_list,results):
+    moreweather = ''
+    while moreweather != 'Y':
+        moreweather = input('Would you like more weather data (y/n)?')
+        moreweather = moreweather.upper()
+        if moreweather == 'N':
+            sys.exit()
+        elif moreweather == 'Y':
+            return_data(key_list,results)
+        else:
+            print()
+            print('Please enter \'y\' or \'n\'')
+            print()
+            continue
 
-address='http://api.openweathermap.org/data/2.5/weather'
+def main():
 
-headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    load_dotenv()
+    init()
 
-parameters = {'id':'524901','APPID':APPID,'units':'imperial'}
+    APPID = os.getenv('APPID')
 
-response = requests.post(address,headers=headers,params=parameters)
+    address='http://api.openweathermap.org/data/2.5/weather'
 
-response.raise_for_status()
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
-# Display the JSON results returned
-results = response.json()
-print(json.dumps(results))
+    parameters = {'id':'524901','APPID':APPID,'units':'imperial'}
 
-print()
+    response = requests.post(address,headers=headers,params=parameters)
 
-key_list=[]
+    response.raise_for_status()
 
-for key in results.keys():
-    key_list.append(key)
+    # Display the JSON results returned
+    results = response.json()
+    print(json.dumps(results))
 
-print(key_list)
-print(results['main'])
-print(results['main']['temp'])
+    print()
 
-print()
-while True:
-    try:
-        print('What data would you like to see?: ' + Fore.GREEN + str(key_list),end='')
-        print(Style.RESET_ALL,end='')
-        x=input()
-        print(results[x])
-        break
-    except:
-        print('Enter a valid key.')
-print()
+    key_list=[]
+
+    for key in results.keys():
+        key_list.append(key)
+
+    print(key_list)
+    # print(results['main'])
+    # print(results['main']['temp'])
+
+    print()
+    return_data(key_list,results)
+    print()
+    # play_again = ''
+    # while play_again != 'Y':
+    #     play_again = input('Would you like more weather data (y/n)?')
+    #     play_again = play_again.upper()
+    #     if play_again == 'N':
+    #         exit()
+    #     elif play_again == 'Y':
+    #         return_data(key_list,results)
+    #     else:
+    #         print()
+    #         print('Please enter \'y\' or \'n\'')
+    #         print()
+    #         continue
+
+if __name__ == "__main__": main()
