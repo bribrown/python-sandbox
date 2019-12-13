@@ -4,7 +4,7 @@ import sqlite3
 
 def main():
 
-    os.chdir('C:\\Users\\bbrownholtz\\PycharmProjects\\Sandbox\\city.list.json')
+    os.chdir('C:\\Users\\brian\\PycharmProjects\\Sandbox\\venv')
     with open('edited.city.list.json') as f:
         data = json.load(f)
 
